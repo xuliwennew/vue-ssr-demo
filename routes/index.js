@@ -36,6 +36,8 @@ router.get('/', function(req, res, next) {
     // 通过renderToString方法 将Vue实例转换成HTML
     renderer
         // 我们可以通过传入一个”渲染上下文对象”，作为 renderToString 函数的第二个参数，来提供插值数据：
+        // app渲染位置： <!--vue-ssr-outlet-->
+        // context中的内容覆盖 {{ }}
         .renderToString(app, context)
         .then(html => {
             // 最终将拼接好的html页面内容 返回给浏览器
